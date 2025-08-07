@@ -73,7 +73,7 @@ with tab1:
     with col1:
         st.subheader("Survival Count")
         fig1, ax1 = plt.subplots(figsize=(5, 3.5))
-        sns.countplot(data=filtered_df, x="Survival Status", hue="Sex", ax=ax1, width=0.5)
+        sns.countplot(data=filtered_df, x="Survival Status", hue="Sex", ax=ax1, width=0.5, palette="Set2")
         ax1.set_title("Survival Count by Gender")
         fig1.tight_layout()
         st.pyplot(fig1)
@@ -81,7 +81,7 @@ with tab1:
     with col2:
         st.subheader("Embarked Port Count")
         fig2, ax2 = plt.subplots(figsize=(5, 3.5))
-        sns.countplot(data=filtered_df, x="Embarked", ax=ax2, width=0.5)
+        sns.countplot(data=filtered_df, x="Embarked", ax=ax2, width=0.5, palette="Set3")
         ax2.set_title("Embarkation Port Count")
         fig2.tight_layout()
         st.pyplot(fig2)
@@ -92,7 +92,7 @@ with tab1:
         st.subheader("Survival Rate by Class")
         survival_by_class = filtered_df.groupby("Pclass")["Survived"].mean().reset_index()
         fig3, ax3 = plt.subplots(figsize=(5, 3.5))
-        sns.barplot(data=survival_by_class, x="Pclass", y="Survived", ax=ax3, width=0.5)
+        sns.barplot(data=survival_by_class, x="Pclass", y="Survived", ax=ax3, width=0.5, palette="pastel")
         ax3.set_ylim(0, 1)
         ax3.set_ylabel("Survival Rate")
         ax3.set_title("Survival Rate by Class")
@@ -103,7 +103,7 @@ with tab1:
         st.subheader("Average Fare by Class")
         fare_by_class = filtered_df.groupby("Pclass")["Fare"].mean().reset_index()
         fig4, ax4 = plt.subplots(figsize=(5, 3.5))
-        sns.barplot(data=fare_by_class, x="Pclass", y="Fare", ax=ax4, width=0.5)
+        sns.barplot(data=fare_by_class, x="Pclass", y="Fare", ax=ax4, width=0.5, palette="muted")
         ax4.set_title("Average Fare by Class")
         fig4.tight_layout()
         st.pyplot(fig4)
@@ -115,7 +115,7 @@ with tab2:
     with col1:
         st.subheader("Age Distribution")
         fig5, ax5 = plt.subplots(figsize=(5, 3.5))
-        sns.histplot(filtered_df["Age"].dropna(), kde=True, bins=30, ax=ax5)
+        sns.histplot(filtered_df["Age"].dropna(), kde=True, bins=30, ax=ax5, color="#4C72B0")
         ax5.set_title("Age Distribution of Passengers")
         fig5.tight_layout()
         st.pyplot(fig5)
@@ -123,7 +123,7 @@ with tab2:
     with col2:
         st.subheader("Boxplot: Age by Survival")
         fig6, ax6 = plt.subplots(figsize=(5, 3.5))
-        sns.boxplot(data=filtered_df, x="Survival Status", y="Age", ax=ax6, width=0.5)
+        sns.boxplot(data=filtered_df, x="Survival Status", y="Age", ax=ax6, width=0.5, palette="husl")
         ax6.set_title("Boxplot of Age by Survival")
         fig6.tight_layout()
         st.pyplot(fig6)
